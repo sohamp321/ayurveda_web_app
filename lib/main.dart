@@ -1,4 +1,6 @@
+import 'package:ayurveda_app/pages/dashboard.dart';
 import 'package:ayurveda_app/pages/login.dart';
+import 'package:ayurveda_app/pages/patient_details.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: Scaffold(
-        body: Login(),
+        body: PatientDetails(),
       ),
     );
   }
