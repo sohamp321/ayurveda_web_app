@@ -13,12 +13,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      // theme: ThemeData(
+      theme: ThemeData(
 
-      //   colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 75, 171, 249)),
-      //   useMaterial3: true,
-      // ),
-      home: Login(),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 75, 171, 249)),
+        useMaterial3: true,
+      ),
+      home: Scaffold(
+        body: Login(),
+      ),
     );
   }
 }
@@ -55,10 +57,10 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
-            // Text(
-            //   '$_counter',
-            //   style: Theme.of(context).textTheme.headlineMedium,
-            // ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
           ],
         ),
       ),

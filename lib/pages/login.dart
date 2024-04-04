@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:ayurveda_app/components/textfield.dart';
+
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -17,10 +19,12 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    final vh = MediaQuery.of(context).size.height;
+    final vw = MediaQuery.of(context).size.width;
     return Center(
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.5,
-        width: MediaQuery.of(context).size.width * 0.7,
+        height: vh*0.5,
+        width: vw*0.4,
         decoration: BoxDecoration(
           color: Colors.black,
           borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -70,40 +74,57 @@ class _LoginState extends State<Login> {
                     ))
               ],
             ),
+            Spacer(),
             Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  color: Colors.red,
-                  height: 50,
-                  width: 50
-                ),
                 Padding(
-                  padding: EdgeInsets.all(5),
+                  padding: EdgeInsets.only(right: 30),
                   child: 
-                  Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        TextFormField(
-                          controller: _userNameController,
-                          decoration: InputDecoration(labelText: "Username"),
-                          validator: (value){
-                            if(value == null || value.isEmpty){
-                              return "Please enter your user name";
+                  Container(
+                    height: vh*0.25,
+                    width: vh*0.25,
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          SimpleTextField(
+                            textEditingController: _userNameController,
+                            labelText: "Username",
+                            textColor: Colors.white,
+                            validator: (value){
+                              if(value == null || value.isEmpty){
+                                return false;
+                              }
+                              return true;
+                            },
+                          ),
+                          Spacer(),
+                          SimpleTextField(
+                            textEditingController: _passwordController,
+                            labelText: "Password",
+                            textColor: Colors.white,
+                            validator: (value){
+                              if(value == null || value.isEmpty){
+                                return false;
+                              }
+                              return true;
+                            },
+                          ),
+                          SizedBox(
+                            height: vh*0.01,
+                          ),
+                          ElevatedButton(onPressed: (){
+                            if(_formKey.currentState!.validate()){
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("button pressed")));
                             }
-                            return null;
-                          },
-                        ),
-                  
-                        ElevatedButton(onPressed: (){
-                          if(_formKey.currentState!.validate()){
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("button pressed")));
-                          }
-                        }, child: Text("Submit")),
-                      ],
-                    )
-                    
-                    ),
+                          }, child: Text("Submit")),
+                        ],
+                      )
+                      
+                      ),
+                  ),
                 )
               ],
             )
