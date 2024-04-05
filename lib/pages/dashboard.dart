@@ -1,15 +1,36 @@
-import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
+import 'package:data_table_2/data_table_2.dart';
+import 'patient_details.dart'; // Make sure to import your PatientDetails page
 
 class PhysicianDashboard extends StatefulWidget {
-  const PhysicianDashboard({super.key});
+  const PhysicianDashboard({Key? key}) : super(key: key);
 
   @override
   State<PhysicianDashboard> createState() => _PhysicianDashboardState();
 }
 
 class _PhysicianDashboardState extends State<PhysicianDashboard> {
+  void _navigateToPatientDetails(BuildContext context) {
+    Navigator.of(context).push(PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => PatientDetails(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        var begin = Offset(1.0, 0.0);
+        var end = Offset.zero;
+        var curve = Curves.ease;
+
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var offsetAnimation = animation.drive(tween);
+
+        return SlideTransition(
+          position: offsetAnimation,
+          child: child,
+        );
+      },
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,60 +46,19 @@ class _PhysicianDashboardState extends State<PhysicianDashboard> {
                   bottom: 10,
                   right: 10),
               child: ProfilePicture(
-                name: 'Drishti Agrawal',
+                name: 'Physician Name',
                 radius: 25,
                 fontsize: 18,
                 random: true,
               ),
             ),
             Text(
-              "Drishti Agrawal",
+              "Physician Name",
               style: TextStyle(fontSize: 18),
             ),
           ],
         ),
         toolbarHeight: MediaQuery.of(context).size.height * 0.1,
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero, // Remove default padding
-          children: [
-            DrawerHeader(
-              decoration: const BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  CircleAvatar(
-                    radius: 30.0, // Adjust radius as needed
-                    backgroundImage: AssetImage(
-                        'assets/profile_picture.jpg'), // Replace with your asset image
-                  ),
-                  SizedBox(height: 10.0),
-                  Text('User Name'),
-                  Text('user@email.com'),
-                ],
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Option 1'),
-              onTap: () {
-                // Handle 'Option 1' tap event
-                Navigator.pop(context); // Close the drawer
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Option 2'),
-              onTap: () {
-                // Handle 'Option 2' tap event
-                Navigator.pop(context); // Close the drawer
-              },
-            ),
-          ],
-        ),
       ),
       body: Column(
         children: [
@@ -87,29 +67,43 @@ class _PhysicianDashboardState extends State<PhysicianDashboard> {
             children: [],
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.85,
+            height: MediaQuery.of(context).size.height * 0.75,
             width: MediaQuery.of(context).size.width * 0.8,
             decoration: BoxDecoration(
-                color: Colors.grey[300],
+                color: Color(0xffe9f5db),
                 borderRadius: BorderRadius.all(Radius.circular(10))),
             child: SingleChildScrollView(
               scrollDirection:
                   Axis.vertical, // Set scroll direction to vertical
               child: Container(
-                decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10))),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
                 width:
                     MediaQuery.of(context).size.width, // Adjust width as needed
                 child: DataTable(
-                  
-                  border: TableBorder.all(borderRadius: BorderRadius.all(Radius.circular(10)), color: Colors.transparent),
-                  headingRowColor: MaterialStateColor.resolveWith((states) => const Color.fromARGB(255, 170, 171, 171)),
+                  border: TableBorder.all(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      color: Colors.transparent),
+                  headingRowColor: MaterialStateColor.resolveWith(
+                      (states) => const Color(0xffb5c99a)),
                   columns: [
-                    
-                    DataColumn(label: Text('UHID', style: TextStyle(fontWeight: FontWeight.bold),)),
-                    DataColumn(label: Text('Patient Name', style: TextStyle(fontWeight: FontWeight.bold))),
-                    DataColumn(label: Text('Medication Going on', style: TextStyle(fontWeight: FontWeight.bold))),
-                    DataColumn(label: Text('On going day', style: TextStyle(fontWeight: FontWeight.bold))),
-                    DataColumn(label: Text("Edit Patient Assessment", style: TextStyle(fontWeight: FontWeight.bold)))
+                    DataColumn(
+                        label: Text(
+                      'UHID',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )),
+                    DataColumn(
+                        label: Text('Patient Name',
+                            style: TextStyle(fontWeight: FontWeight.bold))),
+                    DataColumn(
+                        label: Text('Medication Going on',
+                            style: TextStyle(fontWeight: FontWeight.bold))),
+                    DataColumn(
+                        label: Text('On going day',
+                            style: TextStyle(fontWeight: FontWeight.bold))),
+                    DataColumn(
+                        label: Text("Edit Patient Assessment",
+                            style: TextStyle(fontWeight: FontWeight.bold)))
                   ],
                   rows: List<DataRow>.generate(
                     20,
@@ -139,6 +133,18 @@ class _PhysicianDashboardState extends State<PhysicianDashboard> {
               ),
             ),
           ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.03,
+          ),
+          Container(
+              height: 40,
+              width: 100,
+              child: ElevatedButton(
+                onPressed: () => _navigateToPatientDetails(context),
+                child: Text("Next", style: TextStyle(color: Colors.black)),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xffb5c99a)),
+              )),
         ],
       ),
       floatingActionButton: FloatingActionButton(
