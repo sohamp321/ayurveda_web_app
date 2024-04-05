@@ -1,5 +1,6 @@
 import 'package:ayurveda_app/pages/dashboard.dart';
 import 'package:ayurveda_app/pages/login.dart';
+import 'package:ayurveda_app/pages/login_screen.dart';
 import 'package:ayurveda_app/pages/patient_details.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: Scaffold(
-        body: PatientDetails(),
+        body: LoginScreen(),
       ),
     );
   }
