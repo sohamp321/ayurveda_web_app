@@ -1,3 +1,4 @@
+import 'package:ayurveda_app/pages/investigations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 
@@ -43,6 +44,7 @@ class _ComplaintsState extends State<Complaints> {
     int totalYes = _statusMap.values.where((value) => value == true).length;
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -172,15 +174,35 @@ class _ComplaintsState extends State<Complaints> {
               SizedBox(
                 width: 20,
               ),
-              Container(
-                height: 40,
-                width: 100,
-                child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xffb5c99a)),
-                    child: Text("Next", style: TextStyle(color: Colors.black))),
-              ),
+              // Inside the Complaints widget, find the "Next" button and modify its onPressed method
+
+Container(
+ height: 40,
+ width: 100,
+ child: ElevatedButton(
+    onPressed: () {
+      Navigator.of(context).push(PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>Investigations(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          var begin = Offset(1.0, 0.0);
+          var end = Offset.zero;
+          var curve = Curves.ease;
+
+          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation.drive(tween);
+
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+      ));
+    },
+    child: Text("Next", style: TextStyle(color: Colors.black)),
+    style: ElevatedButton.styleFrom(backgroundColor: Color(0xffb5c99a)),
+ ),
+),
+
             ],
           ),
         ],

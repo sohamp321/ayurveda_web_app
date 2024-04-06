@@ -136,20 +136,16 @@ class _PhysicianDashboardState extends State<PhysicianDashboard> {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.03,
           ),
-          Container(
-              height: 40,
-              width: 100,
-              child: ElevatedButton(
-                onPressed: () => _navigateToPatientDetails(context),
-                child: Text("Next", style: TextStyle(color: Colors.black)),
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xffb5c99a)),
-              )),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
+        onPressed: () {
+          _navigateToPatientDetails(context);
+        },
+        child: Icon(
+          Icons.add,
+        ),
+        backgroundColor: Color(0xffb5c99a),
       ),
     );
   }
