@@ -1,3 +1,6 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:ayurveda_app/components/widgets.dart';
 import 'package:ayurveda_app/pages/investigations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
@@ -43,34 +46,9 @@ class _ComplaintsState extends State<Complaints> {
   Widget build(BuildContext context) {
     int totalYes = _statusMap.values.where((value) => value == true).length;
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        title: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.015,
-                  top: 10,
-                  bottom: 10,
-                  right: 10),
-              child: ProfilePicture(
-                name: 'Physician Name',
-                radius: 25,
-                fontsize: 18,
-                random: true,
-              ),
-            ),
-            Text(
-              "Physician Name",
-              style: TextStyle(fontSize: 18),
-            ),
-          ],
-        ),
-        toolbarHeight: MediaQuery.of(context).size.height * 0.1,
-      ),
-      body: Column(
+      appBar: appBarMenu(context),
+      body: 
+      Column(
         children: [
           Container(
               width: MediaQuery.of(context).size.width * 0.9,

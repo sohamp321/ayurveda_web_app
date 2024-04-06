@@ -31,8 +31,40 @@ class _PhysicianDashboardState extends State<PhysicianDashboard> {
     ));
   }
 
+  Map<String, bool?> _statusMap = {
+    'Avipaka (Indigestion)': null,
+    'Trishna (Feeling thirsty)': null,
+    'Aruchi (Anorexia)': null,
+    'Gauravam (Heaviness)': null,
+    'Aalasya (Laziness)': null,
+    'Nidranaasha(sleeplessness)': null,
+    'Atinidrata (excessive sleep)': null,
+    'Ashasta-swapna- darshanam (Abnormal dreams)': null,
+    'Tandra (somnolent/feeling sleepy)': null,
+    'Shrama (Breathlessnesswhile exertion)': null,
+    'Daurbalyam ( Weakness)': null,
+    'Klamah (Fatigue)': null,
+    'Sthaulyum (Obesity)': null,
+    'Pitta-samulklesha (VitiatedPitta Features)': null,
+    'Shleshma-samutklesha (Vitiated Ka Features)': null,
+    'Panduta (Anaemic )': null,
+    'Kandu (Itching)': null,
+    'Pidka,Kotha (Skin eruptions)': null,
+    'Daurgandhyatvam (Foul smellfrom sweat, stool, urine etc.)': null,
+    'Arati (Disturbed mind)': null,
+    'Avasadaka (Depressed Mind)': null,
+    'Bala-pranasha/ Brumhanairapi (Loss of physical strength even after taking good diet)':
+        null,
+    'Varna-pranasha(Loss of glow)': null,
+    'Abudhitvam(absent mindedness)': null,
+    'Klaibyum (Lost Vitality)': null,
+  };
+
   @override
   Widget build(BuildContext context) {
+    
+    int totalYes = _statusMap.values.where((value) => value == true).length;
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,

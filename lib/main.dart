@@ -1,8 +1,10 @@
 import 'package:ayurveda_app/pages/complaints.dart';
+import 'package:ayurveda_app/pages/create_patient/create_patient_page.dart';
 import 'package:ayurveda_app/pages/dashboard.dart';
 import 'package:ayurveda_app/pages/investigations.dart';
 import 'package:ayurveda_app/pages/login_screen.dart';
 import 'package:ayurveda_app/pages/patient_details.dart';
+import 'package:ayurveda_app/pages/theme_preview.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,11 +21,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
 
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 75, 171, 249)),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xffE9F5DB)),
         useMaterial3: true,
       ),
       home: Scaffold(
-        body: PhysicianDashboard(),
+        body: PatientDetails(),
       ),
     );
   }

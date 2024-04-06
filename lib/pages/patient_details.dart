@@ -1,8 +1,14 @@
+import 'package:ayurveda_app/pages/create_patient/components/investigations.dart';
+import 'package:ayurveda_app/pages/create_patient/components/poorvakarma.dart';
 import 'package:ayurveda_app/pages/complaints.dart';
 import 'package:ayurveda_app/pages/dashboard.dart';
+import 'package:ayurveda_app/pages/investigations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import 'package:intl/intl.dart';
+
+import '../components/widgets.dart';
 
 class PatientDetails extends StatefulWidget {
   const PatientDetails({Key? key}) : super(key: key);
@@ -38,205 +44,195 @@ class _PatientDetailsState extends State<PatientDetails> {
     }
   }
 
+  Map<String, bool?> _statusMap = {
+    'Avipaka (Indigestion)': null,
+    'Trishna (Feeling thirsty)': null,
+    'Aruchi (Anorexia)': null,
+    'Gauravam (Heaviness)': null,
+    'Aalasya (Laziness)': null,
+    'Nidranaasha(sleeplessness)': null,
+    'Atinidrata (excessive sleep)': null,
+    'Ashasta-swapna- darshanam (Abnormal dreams)': null,
+    'Tandra (somnolent/feeling sleepy)': null,
+    'Shrama (Breathlessnesswhile exertion)': null,
+    'Daurbalyam ( Weakness)': null,
+    'Klamah (Fatigue)': null,
+    'Sthaulyum (Obesity)': null,
+    'Pitta-samulklesha (VitiatedPitta Features)': null,
+    'Shleshma-samutklesha (Vitiated Ka Features)': null,
+    'Panduta (Anaemic )': null,
+    'Kandu (Itching)': null,
+    'Pidka,Kotha (Skin eruptions)': null,
+    'Daurgandhyatvam (Foul smellfrom sweat, stool, urine etc.)': null,
+    'Arati (Disturbed mind)': null,
+    'Avasadaka (Depressed Mind)': null,
+    'Bala-pranasha/ Brumhanairapi (Loss of physical strength even after taking good diet)':
+        null,
+    'Varna-pranasha(Loss of glow)': null,
+    'Abudhitvam(absent mindedness)': null,
+    'Klaibyum (Lost Vitality)': null,
+  };
+
   @override
   Widget build(BuildContext context) {
+    int totalYes = _statusMap.values.where((value) => value == true).length;
+    final vw = MediaQuery.of(context).size.width;
+    final vh = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        title: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.015,
-                  top: 10,
-                  bottom: 10,
-                  right: 10),
-              child: ProfilePicture(
-                name: 'Physician Name',
-                radius: 25,
-                fontsize: 18,
-                random: true,
-              ),
-            ),
-            Text(
-              "Physician Name",
-              style: TextStyle(fontSize: 18),
-            ),
-          ],
-        ),
-        toolbarHeight: MediaQuery.of(context).size.height * 0.1,
-      ),
+      // backgroundColor: Color(0xff97a97c),
+      appBar: appBarMenu(context),
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          emptySpace(context, 0.025, null),
+          // column - 1
           Column(
             children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.05,
-              ),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Patient Details ",
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      letterSpacing: 2),
+                      letterSpacing: 1),
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.05,
+                height: MediaQuery.of(context).size.height * 0.01,
               ),
               Container(
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0xffe9f5db).withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 2,
-                        offset: Offset(0, 3), // changes position of shadow
-                      ),
-                    ],
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(8),
+                        bottomLeft: Radius.circular(8)),
                     color: Color(0xffe9f5db)),
-                height: MediaQuery.of(context).size.height * 0.5,
-                width: MediaQuery.of(context).size.width * 0.5,
+                height: MediaQuery.of(context).size.height * 0.8,
+                width: MediaQuery.of(context).size.width * 0.18,
                 child: Form(
                     key: _formkey,
                     child: Column(
                       children: [
                         // Your existing form fields here
-                        Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20.0),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.2,
-                                    child: TextFormField(
-                                      controller: _patientName,
-                                      decoration: InputDecoration(
-                                          labelText: "Patient Name"),
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return "Please enter patient name";
-                                        }
-                                        return null;
-                                      },
-                                    ),
-                                  ),
-                                  Container(
-                                    // height: 100,
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.2,
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        _selectDate(context);
-                                      },
-                                      child: AbsorbPointer(
-                                        child: TextFormField(
-                                          controller: _date,
-                                          decoration: InputDecoration(
-                                              labelText: "Date of Birth",
-                                              suffixIcon:
-                                                  Icon(Icons.calendar_today)),
-                                          // enabled: false,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.2,
-                                    child: TextFormField(
-                                      controller: _pastillness,
-                                      decoration: InputDecoration(
-                                          labelText: "Past Illness"),
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return "Please enter patient past illness";
-                                        }
-                                        return null;
-                                      },
-                                    ),
-                                  ),
-                                ],
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                width:
+                                    MediaQuery.of(context).size.width * 0.125,
+                                child: TextFormField(
+                                  controller: _patientName,
+                                  decoration: InputDecoration(
+                                      labelText: "Patient Name"),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return "Please enter patient name";
+                                    }
+                                    return null;
+                                  },
+                                ),
                               ),
-                            ),
-                            Spacer(),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 20.0),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.2,
+                              Container(
+                                // height: 100,
+                                width:
+                                    MediaQuery.of(context).size.width * 0.125,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    _selectDate(context);
+                                  },
+                                  child: AbsorbPointer(
                                     child: TextFormField(
-                                      controller: _uhid,
-                                      decoration:
-                                          InputDecoration(labelText: "UHID"),
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return "Please enter patient uhid";
-                                        }
-                                        return null;
-                                      },
-                                    ),
-                                  ),
-                                  Container(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.2,
-                                    child: TextFormField(
-                                      controller: _patientOccupation,
+                                      controller: _date,
                                       decoration: InputDecoration(
-                                          labelText: "Patient Occupation"),
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return "Please enter patient occupation";
-                                        }
-                                        return null;
-                                      },
+                                          labelText: "Date of Birth",
+                                          suffixIcon:
+                                              Icon(Icons.calendar_today)),
+                                      // enabled: false,
                                     ),
                                   ),
-                                  Container(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.2,
-                                    child: TextFormField(
-                                      controller: _address,
-                                      decoration: InputDecoration(
-                                          labelText: "Patient address"),
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return "Please enter patient address";
-                                        }
-                                        return null;
-                                      },
-                                    ),
-                                  ),
-                                ],
+                                ),
                               ),
-                            )
-                          ],
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.475,
-                          child: TextFormField(
-                            controller: _medicalHistory,
-                            decoration:
-                                InputDecoration(labelText: "Medical History"),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return "Please enter patient medical history";
-                              }
-                              return null;
-                            },
+                              Container(
+                                width:
+                                    MediaQuery.of(context).size.width * 0.125,
+                                child: TextFormField(
+                                  controller: _pastillness,
+                                  decoration: InputDecoration(
+                                      labelText: "Past Illness"),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return "Please enter patient past illness";
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ),
+                              Container(
+                                width:
+                                    MediaQuery.of(context).size.width * 0.125,
+                                child: TextFormField(
+                                  controller: _uhid,
+                                  decoration:
+                                      InputDecoration(labelText: "UHID"),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return "Please enter patient uhid";
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ),
+                              Container(
+                                width:
+                                    MediaQuery.of(context).size.width * 0.125,
+                                child: TextFormField(
+                                  controller: _patientOccupation,
+                                  decoration: InputDecoration(
+                                      labelText: "Patient Occupation"),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return "Please enter patient occupation";
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ),
+                              Container(
+                                width:
+                                    MediaQuery.of(context).size.width * 0.125,
+                                child: TextFormField(
+                                  controller: _address,
+                                  decoration: InputDecoration(
+                                      labelText: "Patient address"),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return "Please enter patient address";
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ),
+                              Container(
+                                width:
+                                    MediaQuery.of(context).size.width * 0.125,
+                                child: TextFormField(
+                                  controller: _medicalHistory,
+                                  decoration: InputDecoration(
+                                      labelText: "Medical History"),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return "Please enter patient medical history";
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -245,61 +241,136 @@ class _PatientDetailsState extends State<PatientDetails> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
-              Row(
-                children: [
-                  Container(
-                      height: 40,
-                      width: 100,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child:
-                            Text("Back", style: TextStyle(color: Colors.black)),
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xffb5c99a)),
-                      )),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Container(
-                    height: 40,
-                    width: 100,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  Complaints(),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
-                            var begin = Offset(1.0, 0.0);
-                            var end = Offset.zero;
-                            var curve = Curves.ease;
-
-                            var tween = Tween(begin: begin, end: end)
-                                .chain(CurveTween(curve: curve));
-                            var offsetAnimation = animation.drive(tween);
-
-                            return SlideTransition(
-                              position: offsetAnimation,
-                              child: child,
-                            );
-                          },
-                        ));
-                      },
-                      child:
-                          Text("Next", style: TextStyle(color: Colors.black)),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xffb5c99a)),
-                    ),
-                  ),
-                ],
-              ),
             ],
           ),
+          
+          emptySpace(context, 0.005, null),
+
+          // column - 2
+          Column(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height * 0.9,
+                width: MediaQuery.of(context).size.width * 0.4,
+                child: Column(
+                  children: [
+                    Container(
+                        width: MediaQuery.of(context).size.width * 0.4,
+                        child: Text(
+                          "Complaints (Bahudosha)",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        )),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.8,
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      decoration: BoxDecoration(
+                        color: Color(0xffe9f5db),
+                      ),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          width: MediaQuery.of(context).size.width,
+                          child: DataTable(
+                            border: TableBorder.all(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                                color: Colors.transparent),
+                            headingRowColor: MaterialStateColor.resolveWith(
+                                (states) => const Color(0xffb5c99a)),
+                            columns: [
+                              DataColumn(
+                                  label: Text(
+                                'Complaint',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              )),
+                              DataColumn(
+                                  label: Text('Status',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold))),
+                            ],
+                            rows: _statusMap.entries.map((entry) {
+                              return DataRow(cells: [
+                                DataCell(Text(entry.key)),
+                                DataCell(
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Radio<bool?>(
+                                        value: true,
+                                        groupValue: entry.value,
+                                        onChanged: (bool? value) {
+                                          setState(() {
+                                            _statusMap[entry.key] = value;
+                                          });
+                                        },
+                                      ),
+                                      Text('Yes'),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      Radio<bool?>(
+                                        value: false,
+                                        groupValue: entry.value,
+                                        onChanged: (bool? value) {
+                                          setState(() {
+                                            _statusMap[entry.key] = value;
+                                          });
+                                        },
+                                      ),
+                                      Text('No'),
+                                    ],
+                                  ),
+                                ),
+                              ]);
+                            }).toList(),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: vh * 0.01),
+                      child: Text(
+                        "$totalYes/25 factors present",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+          
+          emptySpace(context, 0.005, null),
+
+          // column - 3
+          investigations(vw: vw, vh: vh),
+
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.005,
+          ),
+
+          // column - 4
+          poorvaKarma(),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: Color(0xffb5c99a),
+        child: Icon(Icons.navigate_next_sharp),
       ),
     );
   }
 }
+
+
+
