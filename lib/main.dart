@@ -1,3 +1,4 @@
+import 'package:ayurveda_app/pages/aama_lakshana_assessment/ala_page.dart';
 import 'package:ayurveda_app/pages/complaints.dart';
 import 'package:ayurveda_app/pages/create_patient/create_patient_page.dart';
 import 'package:ayurveda_app/pages/dashboard.dart';
