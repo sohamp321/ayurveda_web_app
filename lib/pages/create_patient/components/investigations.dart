@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class investigations extends StatelessWidget {
   const investigations({
@@ -14,10 +15,15 @@ class investigations extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          "Investigations",
-          style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, letterSpacing: 1),
+        Padding(
+          padding: const EdgeInsets.only(top : 8.0),
+          child: FittedBox(
+            child: Text(
+              "Investigations",
+              style: TextStyle(
+                  fontSize: 20, fontWeight: FontWeight.bold, letterSpacing: 1),
+            ),
+          ),
         ),
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.01,
@@ -25,7 +31,7 @@ class investigations extends StatelessWidget {
         Container(
           height: MediaQuery.of(context).size.height * 0.8,
           width: MediaQuery.of(context).size.width * 0.2,
-          color: Color(0xffe9f5db),
+          color: Color(0xffe9f5db).withOpacity(0.5),
           child: Container(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

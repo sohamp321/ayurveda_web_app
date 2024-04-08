@@ -1,5 +1,6 @@
 import 'package:ayurveda_app/components/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class DateDosePicker extends StatelessWidget {
   const DateDosePicker({super.key});
@@ -35,7 +36,7 @@ class DateDosePicker extends StatelessWidget {
                             letterSpacing: 1),
                       )),
                   decoration: BoxDecoration(
-                      color: Color(0xff97a97c),
+                      color: Color(0xff97a97c).withOpacity(0.5),
                       borderRadius:
                           BorderRadius.only(topLeft: Radius.circular(8))
                       // border: Border.all(color: Colors.black),
@@ -44,38 +45,38 @@ class DateDosePicker extends StatelessWidget {
                 emptySpace(context, 0.002, null),
                 Container(
                   width: vw * 0.1,
-                  color: Color(0xffb5c99a),
+                  color: Color(0xffb5c99a).withOpacity(0.5),
                 ),
                 emptySpace(context, 0.002, null),
                 Container(
                   width: vw * 0.1,
-                  color: Color(0xffb5c99a),
+                  color: Color(0xffb5c99a).withOpacity(0.5),
                 ),
                 emptySpace(context, 0.002, null),
                 Container(
                   width: vw * 0.1,
-                  color: Color(0xffb5c99a),
+                  color: Color(0xffb5c99a).withOpacity(0.5),
                 ),
                 emptySpace(context, 0.002, null),
                 Container(
                   width: vw * 0.1,
-                  color: Color(0xffb5c99a),
+                  color: Color(0xffb5c99a).withOpacity(0.5),
                 ),
                 emptySpace(context, 0.002, null),
                 Container(
                   width: vw * 0.1,
-                  color: Color(0xffb5c99a),
+                  color: Color(0xffb5c99a).withOpacity(0.5),
                 ),
                 emptySpace(context, 0.002, null),
                 Container(
                   width: vw * 0.1,
-                  color: Color(0xffb5c99a),
+                  color: Color(0xffb5c99a).withOpacity(0.5),
                 ),
                 emptySpace(context, 0.002, null),
                 Container(
                   width: vw * 0.1,
                   decoration: BoxDecoration(
-                    color: Color(0xffb5c99a),
+                    color: Color(0xffb5c99a).withOpacity(0.5),
                     borderRadius:
                         BorderRadius.only(topRight: Radius.circular(8)),
                   ),
@@ -105,7 +106,7 @@ class DateDosePicker extends StatelessWidget {
                             letterSpacing: 1),
                       )),
                   decoration: BoxDecoration(
-                      color: Color(0xff97a97c),
+                      color: Color(0xff97a97c).withOpacity(0.5),
                       borderRadius:
                           BorderRadius.only(bottomLeft: Radius.circular(8))
                       // border: Border.all(color: Colors.black),
@@ -115,14 +116,14 @@ class DateDosePicker extends StatelessWidget {
                 Container(
                   height: vh,
                   width: vw * 0.1,
-                  color: Color(0xffb5c99a),
-                  child: Row(
+                  color: Color(0xffb5c99a).withOpacity(0.5),
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
                         height: vh * 0.04,
-                        width: vw * 0.045,
+                        width: vw * 0.09,
                         color: Colors.transparent,
                         child: ElevatedButton(
                             onPressed: () {},
@@ -131,15 +132,16 @@ class DateDosePicker extends StatelessWidget {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.only(
                                         topLeft: Radius.circular(8),
-                                        bottomLeft: Radius.circular(8)))),
+                                        topRight: Radius.circular(8)))),
                             child: Text(
                               "3gm 2xday",
                               textAlign: TextAlign.center,
+                              style: TextStyle(color: Colors.black),
                             )),
                       ),
                       Container(
                         height: vh * 0.04,
-                        width: vw * 0.045,
+                        width: vw * 0.09,
                         color: Colors.transparent,
                         child: ElevatedButton(
                             onPressed: () {},
@@ -147,11 +149,11 @@ class DateDosePicker extends StatelessWidget {
                                 backgroundColor: Color(0xff87986a),
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(8),
+                                        bottomLeft: Radius.circular(8),
                                         bottomRight: Radius.circular(8)))),
                             child: Text(
                               "5gm 2xday",
-                              style: TextStyle(color: Colors.black ),
+                              style: TextStyle(color: Colors.black),
                               textAlign: TextAlign.center,
                             )),
                       )
@@ -160,34 +162,48 @@ class DateDosePicker extends StatelessWidget {
                 ),
                 emptySpace(context, 0.002, null),
                 Container(
-                  width: vw * 0.1,
-                  color: Color(0xffb5c99a),
+                  width: vw*0.1,
+                  child: Container(
+                    height: vh * 0.04,
+                    width: vw * 0.09,
+                    // color: Color(0xffb5c99a),
+                    child: ChoiceChip(
+                      label: Text("3gm 2x day"),
+                      selected: true,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(8),
+                              bottomRight: Radius.circular(8))),
+                      backgroundColor: Color(0xff87986a),
+                      selectedColor: Color(0xff87986a),
+                    ),
+                  ),
                 ),
                 emptySpace(context, 0.002, null),
                 Container(
                   width: vw * 0.1,
-                  color: Color(0xffb5c99a),
+                  color: Color(0xffb5c99a).withOpacity(0.5),
                 ),
                 emptySpace(context, 0.002, null),
                 Container(
                   width: vw * 0.1,
-                  color: Color(0xffb5c99a),
+                  color: Color(0xffb5c99a).withOpacity(0.5),
                 ),
                 emptySpace(context, 0.002, null),
                 Container(
                   width: vw * 0.1,
-                  color: Color(0xffb5c99a),
+                  color: Color(0xffb5c99a).withOpacity(0.5),
                 ),
                 emptySpace(context, 0.002, null),
                 Container(
                   width: vw * 0.1,
-                  color: Color(0xffb5c99a),
+                  color: Color(0xffb5c99a).withOpacity(0.5),
                 ),
                 emptySpace(context, 0.002, null),
                 Container(
                   width: vw * 0.1,
                   decoration: BoxDecoration(
-                    color: Color(0xffb5c99a),
+                    color: Color(0xffb5c99a).withOpacity(0.5),
                     borderRadius:
                         BorderRadius.only(bottomRight: Radius.circular(8)),
                   ),

@@ -3,6 +3,7 @@ import 'package:ayurveda_app/pages/create_patient/create_patient_page.dart';
 import 'package:ayurveda_app/pages/dashboard.dart';
 import 'package:ayurveda_app/pages/login/login_page.dart';
 import 'package:ayurveda_app/pages/patient_details.dart';
+import 'package:ayurveda_app/pages/sneha_lakshana_assessment/sla_page.dart';
 import 'package:ayurveda_app/pages/theme_preview.dart';
 import 'package:flutter/material.dart';
 
@@ -19,12 +20,21 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        brightness: Brightness.light,
+        primarySwatch: Colors.green,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          background: Color(0xffe9f5db),
+          surface: Color(0xffcfe1b9),
+          primary: Color(0xff87986a),
+          secondary: Color(0xff97a97c),
+          tertiary: Color(0xffb5c99a),
 
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xffE9F5DB)),
+        ),
+        // colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xffE9F5DB)),
         useMaterial3: true,
       ),
       home: Scaffold(
-        body: PatientDetails(),
+        body: Sla_Page(),
       ),
     );
   }

@@ -1,8 +1,8 @@
 import 'package:ayurveda_app/components/widgets.dart';
 import 'package:flutter/material.dart';
 
-class DateShower extends StatelessWidget {
-  const DateShower({super.key});
+class DayShower extends StatelessWidget {
+  const DayShower({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,14 +10,14 @@ class DateShower extends StatelessWidget {
     final vh = MediaQuery.of(context).size.height;
 
     return Container(
-      width: vw,
-      height: vh * 0.1,
+      width: vw*0.7,
+      height: vh * 0.08,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Container(
             height: vh * 0.1,
-            width: vw * 0.1,
+            width: vw * 0.09,
             decoration: BoxDecoration(
                 color: Color(0xff97a97c),
                 borderRadius: BorderRadius.only(
@@ -33,7 +33,7 @@ class DateShower extends StatelessWidget {
           emptySpace(context, 0.002, null),
           Container(
             height: vh * 0.1,
-            width: vw * 0.1,
+            width: vw * 0.09,
             decoration: BoxDecoration(
               color: Color(0xffb5c99a).withOpacity(0.5),
             ),
@@ -47,7 +47,7 @@ class DateShower extends StatelessWidget {
           emptySpace(context, 0.002, null),
           Container(
             height: vh * 0.1,
-            width: vw * 0.1,
+            width: vw * 0.09,
             decoration: BoxDecoration(
               color: Color(0xffb5c99a).withOpacity(0.5),
             ),
@@ -61,7 +61,7 @@ class DateShower extends StatelessWidget {
           emptySpace(context, 0.002, null),
           Container(
             height: vh * 0.1,
-            width: vw * 0.1,
+            width: vw * 0.09,
             decoration: BoxDecoration(
               color: Color(0xffb5c99a).withOpacity(0.5),
             ),
@@ -75,7 +75,7 @@ class DateShower extends StatelessWidget {
           emptySpace(context, 0.002, null),
           Container(
             height: vh * 0.1,
-            width: vw * 0.1,
+            width: vw * 0.09,
             decoration: BoxDecoration(
               color: Color(0xffb5c99a).withOpacity(0.5),
             ),
@@ -89,7 +89,7 @@ class DateShower extends StatelessWidget {
           emptySpace(context, 0.002, null),
           Container(
             height: vh * 0.1,
-            width: vw * 0.1,
+            width: vw * 0.09,
             decoration: BoxDecoration(
               color: Color(0xffb5c99a).withOpacity(0.5),
             ),
@@ -103,7 +103,7 @@ class DateShower extends StatelessWidget {
           emptySpace(context, 0.002, null),
           Container(
             height: vh * 0.1,
-            width: vw * 0.105,
+            width: vw * 0.09,
             decoration: BoxDecoration(
                 color: Color(0xffb5c99a).withOpacity(0.5),
                 borderRadius: BorderRadius.only(
