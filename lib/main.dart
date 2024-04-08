@@ -1,10 +1,7 @@
 import 'package:ayurveda_app/pages/aama_lakshana_assessment/ala_page.dart';
-import 'package:ayurveda_app/pages/complaints.dart';
 import 'package:ayurveda_app/pages/create_patient/create_patient_page.dart';
 import 'package:ayurveda_app/pages/dashboard.dart';
-import 'package:ayurveda_app/pages/investigations.dart';
 import 'package:ayurveda_app/pages/login/login_page.dart';
-import 'package:ayurveda_app/pages/login_screen.dart';
 import 'package:ayurveda_app/pages/patient_details.dart';
 import 'package:ayurveda_app/pages/theme_preview.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +24,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: Scaffold(
-        body: LoginPage(),
+        body: PatientDetails(),
       ),
     );
   }

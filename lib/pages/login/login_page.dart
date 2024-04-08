@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.only(left: 15.0, right: 15, bottom: 15),
                                 child: FittedBox(
                                   child: Text(
                                     "Ayurveda Medication app",
@@ -97,8 +97,8 @@ class _LoginPageState extends State<LoginPage> {
                                 height: vh * 0.02,
                               ),
                               Container(
-                                  height: 40,
-                                  width: 300,
+                                  height: vh*0.05,
+                                  width: vw*0.15,
                                   child: ElevatedButton(
                                     onPressed: () {},
                                     child: Text(
@@ -117,8 +117,8 @@ class _LoginPageState extends State<LoginPage> {
                                 height: vh * 0.005,
                               ),
                               Container(
-                                  height: 40,
-                                  width: 300,
+                                  height: vh*0.05,
+                                  width: vw*0.15,
                                   child: ElevatedButton(
                                     onPressed: () {},
                                     child: Text("Physician",
