@@ -10,6 +10,7 @@ import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/day_show
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/klama.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/snigdha_varchas.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/vatanulomana.dart';
+import 'package:ayurveda_app/pages/sneha_lakshana_assessment/sneha_jeera_kala.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/snehadwega.dart';
 import 'package:flutter/material.dart';
 
@@ -82,71 +83,54 @@ class _Sla_PageState extends State<Sla_Page> {
                                   width: vw,
                                   child: vatanulomana(vh: vh, vw: vw),
                                 ),
-                            
                                 emptySpace(context, null, 0.01),
-                                
                                 Container(
                                   height: vh * 0.19,
                                   width: vw,
                                   child: agnideepthi(vh: vh, vw: vw),
                                 ),
-                            
                                 emptySpace(context, null, 0.01),
-                                
                                 Container(
                                   height: vh * 0.19,
                                   width: vw,
                                   child: snigdha_varchas(vh: vh, vw: vw),
                                 ),
-                            
                                 emptySpace(context, null, 0.01),
-                                
                                 Container(
                                   height: vh * 0.19,
                                   width: vw,
                                   child: asamhata_varchas(vh: vh, vw: vw),
                                 ),
-
                                 emptySpace(context, null, 0.01),
-                                
                                 Container(
                                   height: vh * 0.19,
                                   width: vw,
                                   child: snehodwega(vh: vh, vw: vw),
                                 ),
-
                                 emptySpace(context, null, 0.01),
-                                
                                 Container(
                                   height: vh * 0.19,
                                   width: vw,
                                   child: anga_snigdhata(vh: vh, vw: vw),
                                 ),
-
                                 emptySpace(context, null, 0.01),
-                                
                                 Container(
                                   height: vh * 0.19,
                                   width: vw,
                                   child: klama(vh: vh, vw: vw),
                                 ),
-
                                 emptySpace(context, null, 0.01),
-                                
                                 Container(
                                   height: vh * 0.19,
                                   width: vw,
                                   child: anga_mardavta(vh: vh, vw: vw),
                                 ),
-
                                 emptySpace(context, null, 0.01),
-                                
                                 Container(
                                   height: vh * 0.19,
                                   width: vw,
                                   child: anga_laghutwa(vh: vh, vw: vw),
                                 ),
-
                                 emptySpace(context, null, 0.01),
                               ],
                             ),
@@ -158,11 +142,23 @@ class _Sla_PageState extends State<Sla_Page> {
                 ),
               )),
         ),
+        floatingActionButton: FloatingActionButton(
+          
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      Sneha_jeera_lakshan()), // Assuming SnehaJeerna is the name of the class in sneha_jeerna.dart
+            );
+          },
+          backgroundColor: Color.fromARGB(255, 29, 186, 34),
+          child: Icon(Icons.navigate_next_sharp),
+        ),
       ),
     ]);
   }
 }
-
 
 class sla_yes_no_begin extends StatelessWidget {
   const sla_yes_no_begin({

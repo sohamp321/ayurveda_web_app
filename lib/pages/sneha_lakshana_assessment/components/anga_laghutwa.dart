@@ -5,7 +5,7 @@ import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/day_show
 import 'package:flutter/material.dart';
 
 class anga_laghutwa extends StatelessWidget {
-  const anga_laghutwa({
+  anga_laghutwa({
     super.key,
     required this.vh,
     required this.vw,
@@ -13,6 +13,16 @@ class anga_laghutwa extends StatelessWidget {
 
   final double vh;
   final double vw;
+
+  Map<String, bool> answers = {
+    'Day 1': false,
+    'Day 2': false,
+    'Day 3': false,
+    'Day 4': false,
+    'Day 5': false,
+    'Day 6': false,
+    'Day 7': false,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -22,30 +32,25 @@ class anga_laghutwa extends StatelessWidget {
           height: vh * 0.188,
           width: vw * 0.09,
           decoration: BoxDecoration(
-            
-            color:
-                Color(0xffe9f5db).withOpacity(0.5),
+            color: Color(0xffe9f5db).withOpacity(0.5),
           ),
-          child:
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(child: Center(child: Text("Anga Laghutwa"))),
-              ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(child: Center(child: Text("Anga Laghutwa"))),
+          ),
         ),
         emptySpace(context, 0.002, null),
         Container(
           height: vh * 0.19,
           width: vw * 0.12,
           child: Column(
-            mainAxisAlignment:
-                MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 height: vh * 0.058,
                 width: vw * 0.12,
                 decoration: BoxDecoration(
-                  color: Color(0xff87986a)
-                      .withOpacity(0.5),
+                  color: Color(0xff87986a).withOpacity(0.5),
                 ),
                 child: Center(
                   child: Text(
@@ -59,8 +64,7 @@ class anga_laghutwa extends StatelessWidget {
                 height: vh * 0.058,
                 width: vw * 0.12,
                 decoration: BoxDecoration(
-                  color: Color(0xff87986a)
-                      .withOpacity(0.5),
+                  color: Color(0xff87986a).withOpacity(0.5),
                 ),
                 child: Center(
                   child: Text(
@@ -74,8 +78,7 @@ class anga_laghutwa extends StatelessWidget {
                 height: vh * 0.058,
                 width: vw * 0.12,
                 decoration: BoxDecoration(
-                  color: Color(0xff87986a)
-                      .withOpacity(0.5),
+                  color: Color(0xff87986a).withOpacity(0.5),
                 ),
                 child: Center(
                   child: Text(
@@ -92,15 +95,13 @@ class anga_laghutwa extends StatelessWidget {
           height: vh * 0.19,
           width: vw * 0.03,
           child: Column(
-            mainAxisAlignment:
-                MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 height: vh * 0.058,
                 width: vw * 0.12,
                 decoration: BoxDecoration(
-                  color: Color(0xff87986a)
-                      .withOpacity(0.5),
+                  color: Color(0xff87986a).withOpacity(0.5),
                   borderRadius: BorderRadius.only(
                     // topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
@@ -108,12 +109,10 @@ class anga_laghutwa extends StatelessWidget {
                 ),
                 child: Center(
                   child: Padding(
-                    padding:
-                        const EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Text(
                       "2",
-                      style:
-                          TextStyle(fontSize: 12),
+                      style: TextStyle(fontSize: 12),
                     ),
                   ),
                 ),
@@ -123,17 +122,14 @@ class anga_laghutwa extends StatelessWidget {
                 height: vh * 0.058,
                 width: vw * 0.12,
                 decoration: BoxDecoration(
-                  color: Color(0xff87986a)
-                      .withOpacity(0.5),
+                  color: Color(0xff87986a).withOpacity(0.5),
                 ),
                 child: Center(
                   child: Padding(
-                    padding:
-                        const EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Text(
                       "1",
-                      style:
-                          TextStyle(fontSize: 12),
+                      style: TextStyle(fontSize: 12),
                     ),
                   ),
                 ),
@@ -143,21 +139,17 @@ class anga_laghutwa extends StatelessWidget {
                 height: vh * 0.058,
                 width: vw * 0.12,
                 decoration: BoxDecoration(
-                  color: Color(0xff87986a)
-                      .withOpacity(0.5),
+                  color: Color(0xff87986a).withOpacity(0.5),
                   borderRadius: BorderRadius.only(
-                    bottomRight:
-                        Radius.circular(10),
+                    bottomRight: Radius.circular(10),
                   ),
                 ),
                 child: Center(
                   child: Padding(
-                    padding:
-                        const EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Text(
                       "0",
-                      style:
-                          TextStyle(fontSize: 12),
+                      style: TextStyle(fontSize: 12),
                     ),
                   ),
                 ),
@@ -166,8 +158,6 @@ class anga_laghutwa extends StatelessWidget {
           ),
         ),
         emptySpace(context, 0.005, null),
-        
-        
         sla_yes_no_begin(vh: vh, vw: vw),
         emptySpace(context, 0.002, null),
         sla_yes_no(vh: vh, vw: vw),
@@ -185,7 +175,6 @@ class anga_laghutwa extends StatelessWidget {
     );
   }
 }
-
 
 class sla_yes_no_begin extends StatelessWidget {
   const sla_yes_no_begin({

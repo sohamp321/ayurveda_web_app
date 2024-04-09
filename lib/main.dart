@@ -4,6 +4,7 @@ import 'package:ayurveda_app/pages/dashboard.dart';
 import 'package:ayurveda_app/pages/login/login_page.dart';
 import 'package:ayurveda_app/pages/patient_details.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/sla_page.dart';
+import 'package:ayurveda_app/pages/sneha_lakshana_assessment/sneha_jeera_kala.dart';
 import 'package:ayurveda_app/pages/theme_preview.dart';
 import 'package:flutter/material.dart';
 
@@ -80,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed:(){},
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), 
