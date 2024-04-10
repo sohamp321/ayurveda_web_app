@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:ayurveda_app/pages/dashboard.dart';
+import 'package:ayurveda_app/pages/patient_details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -68,7 +70,8 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 15.0, right: 15, bottom: 15),
+                                padding: const EdgeInsets.only(
+                                    left: 15.0, right: 15, bottom: 15),
                                 child: FittedBox(
                                   child: Text(
                                     "Ayurveda Medication app",
@@ -97,8 +100,8 @@ class _LoginPageState extends State<LoginPage> {
                                 height: vh * 0.02,
                               ),
                               Container(
-                                  height: vh*0.05,
-                                  width: vw*0.15,
+                                  height: vh * 0.05,
+                                  width: vw * 0.15,
                                   child: ElevatedButton(
                                     onPressed: () {},
                                     child: Text(
@@ -117,8 +120,8 @@ class _LoginPageState extends State<LoginPage> {
                                 height: vh * 0.005,
                               ),
                               Container(
-                                  height: vh*0.05,
-                                  width: vw*0.15,
+                                  height: vh * 0.05,
+                                  width: vw * 0.15,
                                   child: ElevatedButton(
                                     onPressed: () {},
                                     child: Text("Physician",
@@ -192,9 +195,7 @@ class _LoginPageState extends State<LoginPage> {
                                         },
                                       ),
                                     ),
-                                    SizedBox(
-                                        height: vh *
-                                            0.05), // Add some space at the bottom
+                                    SizedBox(height: vh * 0.05),
 
                                     Container(
                                       width: 200,
@@ -210,7 +211,32 @@ class _LoginPageState extends State<LoginPage> {
                                             textStyle:
                                                 TextStyle(color: Colors.black),
                                           ),
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            if (_formKey.currentState!
+                                                .validate()) {
+                                              // Check if the username and password are correct
+                                              if (_userNameController.text ==
+                                                      "abcd" &&
+                                                  _passwordController.text ==
+                                                      "123") {
+                                                // If the credentials are correct, navigate to the patient details page
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          PhysicianDashboard()),
+                                                );
+                                              } else {
+                                                // If the credentials are incorrect, display an error message
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  const SnackBar(
+                                                      content: Text(
+                                                          'Invalid username or password')),
+                                                );
+                                              }
+                                            }
+                                          },
                                           child: Text(
                                             "Submit",
                                             style:

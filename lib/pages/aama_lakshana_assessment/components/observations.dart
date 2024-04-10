@@ -37,20 +37,17 @@ class Observations extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-           
-            alaObsBegin(context,entriesList[0].key, vw, vh),
+            alaObsBegin(context, entriesList[0].key, vw, vh),
             emptySpace(context, null, 0.005),
-            alaObs(context,entriesList[1].key, vw, vh),
+            alaObs(context, entriesList[1].key, vw, vh),
             emptySpace(context, null, 0.005),
-            alaObs(context,entriesList[2].key, vw, vh),
+            alaObs(context, entriesList[2].key, vw, vh),
             emptySpace(context, null, 0.005),
-            alaObs(context,entriesList[3].key, vw, vh),
+            alaObs(context, entriesList[3].key, vw, vh),
             emptySpace(context, null, 0.005),
-            alaObs(context,entriesList[4].key, vw, vh),
+            alaObs(context, entriesList[4].key, vw, vh),
             emptySpace(context, null, 0.005),
-            alaObsEnd(context,entriesList[5].key, vw, vh),
-
-            
+            alaObsEnd(context, entriesList[5].key, vw, vh),
           ],
         ),
       ),
@@ -58,7 +55,8 @@ class Observations extends StatelessWidget {
   }
 }
 
-Widget alaObsBegin(BuildContext context, String observation, final vw, final vh) {
+Widget alaObsBegin(
+    BuildContext context, String observation, final vw, final vh) {
   return Container(
     width: vw,
     height: vh * 0.1,
@@ -70,8 +68,7 @@ Widget alaObsBegin(BuildContext context, String observation, final vw, final vh)
           child: Center(
             child: Text(
               observation,
-              style: TextStyle(
-                  fontSize: 16, fontWeight: FontWeight.bold, letterSpacing: 1),
+              style: TextStyle(fontSize: 14, letterSpacing: 1),
             ),
           ),
           decoration: BoxDecoration(
@@ -424,7 +421,6 @@ Widget alaObsBegin(BuildContext context, String observation, final vw, final vh)
   );
 }
 
-
 Widget alaObs(BuildContext context, String observation, final vw, final vh) {
   return Container(
     width: vw,
@@ -437,15 +433,14 @@ Widget alaObs(BuildContext context, String observation, final vw, final vh) {
           child: Center(
             child: Text(
               observation,
-              style: TextStyle(
-                  fontSize: 16, fontWeight: FontWeight.bold, letterSpacing: 1),
+              style: TextStyle(fontSize: 14, letterSpacing: 1),
             ),
           ),
           decoration: BoxDecoration(
-              color: Color(0xff97a97c).withOpacity(0.5),
-              // borderRadius: BorderRadius.only(topLeft: Radius.circular(8))
-              // border: Border.all(color: Colors.black),
-              ),
+            color: Color(0xff97a97c).withOpacity(0.5),
+            // borderRadius: BorderRadius.only(topLeft: Radius.circular(8))
+            // border: Border.all(color: Colors.black),
+          ),
         ),
         emptySpace(context, 0.002, null),
         Container(
@@ -803,8 +798,7 @@ Widget alaObsEnd(BuildContext context, String observation, final vw, final vh) {
           child: Center(
             child: Text(
               observation,
-              style: TextStyle(
-                  fontSize: 16, fontWeight: FontWeight.bold, letterSpacing: 1),
+              style: TextStyle(fontSize: 14, letterSpacing: 1),
             ),
           ),
           decoration: BoxDecoration(

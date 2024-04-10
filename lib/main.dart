@@ -3,7 +3,9 @@ import 'package:ayurveda_app/pages/create_patient/create_patient_page.dart';
 import 'package:ayurveda_app/pages/dashboard.dart';
 import 'package:ayurveda_app/pages/login/login_page.dart';
 import 'package:ayurveda_app/pages/patient_details.dart';
+import 'package:ayurveda_app/pages/samyak_yoga_lakshan/syl_page.dart';
 import 'package:ayurveda_app/pages/sarwanga/sarvanga.dart';
+import 'package:ayurveda_app/pages/snehaJeeryamana_lakhan/sneha_jeer_lakshan.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/sla_page.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/sneha_jeera_kala.dart';
 import 'package:ayurveda_app/pages/theme_preview.dart';
@@ -36,56 +38,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: Scaffold(
-        body: Sarvanga(),
+        body:syl_page(),
       ),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
 
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed:(){},
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), 
-    );
-  }
-}

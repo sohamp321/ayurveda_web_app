@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:ayurveda_app/components/widgets.dart';
 import 'package:ayurveda_app/pages/aama_lakshana_assessment/components/observations.dart';
+import 'package:ayurveda_app/pages/sarwanga/sarvanga.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/aahara.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/day_shower.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/observations.dart';
@@ -11,14 +12,14 @@ import 'package:ayurveda_app/pages/sneha_lakshana_assessment/day_shower_sneha_je
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class Sneha_jeera_lakshan extends StatefulWidget {
-  const Sneha_jeera_lakshan({super.key});
+class Sneha_jeerna_kala extends StatefulWidget {
+  const Sneha_jeerna_kala({super.key});
 
   @override
-  State<Sneha_jeera_lakshan> createState() => _Sneha_jeera_lakshanState();
+  State<Sneha_jeerna_kala> createState() => _Sneha_jeerna_kalaState();
 }
 
-class _Sneha_jeera_lakshanState extends State<Sneha_jeera_lakshan> {
+class _Sneha_jeerna_kalaState extends State<Sneha_jeerna_kala> {
   @override
   Widget build(BuildContext context) {
     final vw = MediaQuery.of(context).size.width;
@@ -91,15 +92,30 @@ class _Sneha_jeera_lakshanState extends State<Sneha_jeera_lakshan> {
           ),
         ),
       
-        floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-        floatingActionButton: FloatingActionButton(
-          
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          backgroundColor: const Color.fromARGB(255, 29, 186, 34),
-          child: Icon(Icons.navigate_before_sharp),
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              backgroundColor: const Color.fromARGB(255, 29, 186, 34),
+              child: Icon(Icons.navigate_before_sharp),
+            ),
+            SizedBox(
+              width: vw * 0.92,
+            ),
+            FloatingActionButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Sarvanga_swedana_page()));
+              },
+              backgroundColor: const Color.fromARGB(255, 29, 186, 34),
+              child: Icon(Icons.navigate_next_sharp),
+            ),
+          ],
         ),
+
       ),
     ]);
   }

@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:ayurveda_app/pages/aama_lakshana_assessment/ala_page.dart';
 import 'package:ayurveda_app/pages/create_patient/components/investigations.dart';
 import 'package:ayurveda_app/pages/create_patient/components/poorvakarma.dart';
 
@@ -93,8 +94,8 @@ class _PatientDetailsState extends State<PatientDetails> {
         backgroundColor: Colors.transparent,
         appBar: appBarMenu(context),
         body: Container(
-          height: vh*0.9,
-          width: vw*0.96,
+          height: vh * 0.9,
+          width: vw * 0.96,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: BackdropFilter(
@@ -135,9 +136,9 @@ class _PatientDetailsState extends State<PatientDetails> {
                                   borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(8),
                                       bottomLeft: Radius.circular(8)),
-                                  color: Color(0xffe9f5db).withOpacity(0.5)
-                                  ),
-                              height: MediaQuery.of(context).size.height * 0.7892,
+                                  color: Color(0xffe9f5db).withOpacity(0.5)),
+                              height:
+                                  MediaQuery.of(context).size.height * 0.7892,
                               width: MediaQuery.of(context).size.width * 0.18,
                               child: Form(
                                   key: _formkey,
@@ -145,15 +146,17 @@ class _PatientDetailsState extends State<PatientDetails> {
                                     children: [
                                       // Your existing form fields here
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 20.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 20.0),
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Container(
-                                              width:
-                                                  MediaQuery.of(context).size.width *
-                                                      0.125,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.125,
                                               child: TextFormField(
                                                 controller: _patientName,
                                                 decoration: InputDecoration(
@@ -169,9 +172,10 @@ class _PatientDetailsState extends State<PatientDetails> {
                                             ),
                                             Container(
                                               // height: 100,
-                                              width:
-                                                  MediaQuery.of(context).size.width *
-                                                      0.125,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.125,
                                               child: GestureDetector(
                                                 onTap: () {
                                                   _selectDate(context);
@@ -180,18 +184,20 @@ class _PatientDetailsState extends State<PatientDetails> {
                                                   child: TextFormField(
                                                     controller: _date,
                                                     decoration: InputDecoration(
-                                                        labelText: "Date of Birth",
-                                                        suffixIcon: Icon(
-                                                            Icons.calendar_today)),
+                                                        labelText:
+                                                            "Date of Birth",
+                                                        suffixIcon: Icon(Icons
+                                                            .calendar_today)),
                                                     // enabled: false,
                                                   ),
                                                 ),
                                               ),
                                             ),
                                             Container(
-                                              width:
-                                                  MediaQuery.of(context).size.width *
-                                                      0.125,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.125,
                                               child: TextFormField(
                                                 controller: _pastillness,
                                                 decoration: InputDecoration(
@@ -206,9 +212,10 @@ class _PatientDetailsState extends State<PatientDetails> {
                                               ),
                                             ),
                                             Container(
-                                              width:
-                                                  MediaQuery.of(context).size.width *
-                                                      0.125,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.125,
                                               child: TextFormField(
                                                 controller: _uhid,
                                                 decoration: InputDecoration(
@@ -223,13 +230,15 @@ class _PatientDetailsState extends State<PatientDetails> {
                                               ),
                                             ),
                                             Container(
-                                              width:
-                                                  MediaQuery.of(context).size.width *
-                                                      0.125,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.125,
                                               child: TextFormField(
                                                 controller: _patientOccupation,
                                                 decoration: InputDecoration(
-                                                    labelText: "Patient Occupation"),
+                                                    labelText:
+                                                        "Patient Occupation"),
                                                 validator: (value) {
                                                   if (value == null ||
                                                       value.isEmpty) {
@@ -240,13 +249,15 @@ class _PatientDetailsState extends State<PatientDetails> {
                                               ),
                                             ),
                                             Container(
-                                              width:
-                                                  MediaQuery.of(context).size.width *
-                                                      0.125,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.125,
                                               child: TextFormField(
                                                 controller: _address,
                                                 decoration: InputDecoration(
-                                                    labelText: "Patient address"),
+                                                    labelText:
+                                                        "Patient address"),
                                                 validator: (value) {
                                                   if (value == null ||
                                                       value.isEmpty) {
@@ -257,13 +268,15 @@ class _PatientDetailsState extends State<PatientDetails> {
                                               ),
                                             ),
                                             Container(
-                                              width:
-                                                  MediaQuery.of(context).size.width *
-                                                      0.125,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.125,
                                               child: TextFormField(
                                                 controller: _medicalHistory,
                                                 decoration: InputDecoration(
-                                                    labelText: "Medical History"),
+                                                    labelText:
+                                                        "Medical History"),
                                                 validator: (value) {
                                                   if (value == null ||
                                                       value.isEmpty) {
@@ -287,9 +300,9 @@ class _PatientDetailsState extends State<PatientDetails> {
                       ),
                     ),
                   ),
-              
+
                   emptySpace(context, 0.005, null),
-              
+
                   // column - 2
                   Column(
                     children: [
@@ -301,12 +314,13 @@ class _PatientDetailsState extends State<PatientDetails> {
                             Container(
                                 width: MediaQuery.of(context).size.width * 0.4,
                                 child: Padding(
-                                  padding: const EdgeInsets.only(top : 8.0),
+                                  padding: const EdgeInsets.only(top: 8.0),
                                   child: Text(
                                     "Complaints (Bahudosha)",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                        fontSize: 20, fontWeight: FontWeight.bold),
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 )),
                             SizedBox(
@@ -322,27 +336,31 @@ class _PatientDetailsState extends State<PatientDetails> {
                                 scrollDirection: Axis.vertical,
                                 child: Container(
                                   decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(10))),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(10))),
                                   width: MediaQuery.of(context).size.width,
                                   child: DataTable(
                                     border: TableBorder.all(
-                                        borderRadius:
-                                            BorderRadius.all(Radius.circular(10)),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10)),
                                         color: Colors.transparent),
-                                    headingRowColor: MaterialStateColor.resolveWith(
-                                        (states) => const Color(0xffb5c99a)),
+                                    headingRowColor:
+                                        MaterialStateColor.resolveWith(
+                                            (states) =>
+                                                const Color(0xffb5c99a)),
                                     columns: [
                                       DataColumn(
                                           label: Text(
                                         'Complaint',
-                                        style: TextStyle(fontWeight: FontWeight.bold),
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
                                       )),
                                       DataColumn(
                                           label: Text('Status',
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
-                                                  fontWeight: FontWeight.bold))),
+                                                  fontWeight:
+                                                      FontWeight.bold))),
                                     ],
                                     rows: _statusMap.entries.map((entry) {
                                       return DataRow(cells: [
@@ -357,7 +375,8 @@ class _PatientDetailsState extends State<PatientDetails> {
                                                 groupValue: entry.value,
                                                 onChanged: (bool? value) {
                                                   setState(() {
-                                                    _statusMap[entry.key] = value;
+                                                    _statusMap[entry.key] =
+                                                        value;
                                                   });
                                                 },
                                               ),
@@ -370,7 +389,8 @@ class _PatientDetailsState extends State<PatientDetails> {
                                                 groupValue: entry.value,
                                                 onChanged: (bool? value) {
                                                   setState(() {
-                                                    _statusMap[entry.key] = value;
+                                                    _statusMap[entry.key] =
+                                                        value;
                                                   });
                                                 },
                                               ),
@@ -397,16 +417,16 @@ class _PatientDetailsState extends State<PatientDetails> {
                       )
                     ],
                   ),
-              
+
                   emptySpace(context, 0.005, null),
-              
+
                   // column - 3
                   investigations(vw: vw, vh: vh),
-              
+
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.005,
                   ),
-              
+
                   // column - 4
                   poorvaKarma(),
                 ],
@@ -414,10 +434,28 @@ class _PatientDetailsState extends State<PatientDetails> {
             ),
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          backgroundColor: Color(0xffb5c99a),
-          child: Icon(Icons.navigate_next_sharp),
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              backgroundColor: const Color.fromARGB(255, 29, 186, 34),
+              child: Icon(Icons.navigate_before_sharp),
+            ),
+            SizedBox(
+              width: vw * 0.92,
+            ),
+            FloatingActionButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ala_page()));
+              },
+              backgroundColor: const Color.fromARGB(255, 29, 186, 34),
+              child: Icon(Icons.navigate_next_sharp),
+            ),
+          ],
         ),
       ),
     ]);

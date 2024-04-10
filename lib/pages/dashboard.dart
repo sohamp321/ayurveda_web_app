@@ -177,7 +177,7 @@ class _PhysicianDashboardState extends State<PhysicianDashboard> {
         child: Icon(
           Icons.add,
         ),
-        backgroundColor: Color(0xffb5c99a),
+        backgroundColor: Color.fromARGB(255, 29, 186, 34),
       ),
     );
   }

@@ -1,31 +1,25 @@
 import 'dart:ui';
 
 import 'package:ayurveda_app/components/widgets.dart';
-import 'package:ayurveda_app/pages/aama_lakshana_assessment/components/observations.dart';
 import 'package:ayurveda_app/pages/sarwanga/components/day_shower.dart';
 import 'package:ayurveda_app/pages/sarwanga/components/observations.dart';
 import 'package:ayurveda_app/pages/sarwanga/components/sarvanga_swedana.dart';
-import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/aahara.dart';
-import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/observations.dart';
-import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/sarvang.dart';
-import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/shramaha.dart';
-import 'package:ayurveda_app/pages/sneha_lakshana_assessment/day_shower_sneha_jeera.dart';
+import 'package:ayurveda_app/pages/snehaJeeryamana_lakhan/sneha_jeer_lakshan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class Sarvanga extends StatefulWidget {
-  const Sarvanga({super.key});
+class Sarvanga_swedana_page extends StatefulWidget {
+  const Sarvanga_swedana_page({super.key});
 
   @override
-  State<Sarvanga> createState() => _Sneha_jeera_lakshanState();
+  State<Sarvanga_swedana_page> createState() => _Sarvang_swedana_pageState();
 }
 
-class _Sneha_jeera_lakshanState extends State<Sarvanga> {
+class _Sarvang_swedana_pageState extends State<Sarvanga_swedana_page> {
   @override
   Widget build(BuildContext context) {
     final vw = MediaQuery.of(context).size.width;
     final vh = MediaQuery.of(context).size.height;
-    final colorscheme = Theme.of(context).colorScheme;
     return Stack(children: [
       Container(
         decoration: BoxDecoration(
@@ -92,15 +86,30 @@ class _Sneha_jeera_lakshanState extends State<Sarvanga> {
           ),
         ),
       
-        floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-        floatingActionButton: FloatingActionButton(
-          
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          backgroundColor: const Color.fromARGB(255, 29, 186, 34),
-          child: Icon(Icons.navigate_before_sharp),
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              backgroundColor: const Color.fromARGB(255, 29, 186, 34),
+              child: Icon(Icons.navigate_before_sharp),
+            ),
+            SizedBox(
+              width: vw * 0.92,
+            ),
+            FloatingActionButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => sjl_page()));
+              },
+              backgroundColor: const Color.fromARGB(255, 29, 186, 34),
+              child: Icon(Icons.navigate_next_sharp),
+            ),
+          ],
         ),
+
       ),
     ]);
   }

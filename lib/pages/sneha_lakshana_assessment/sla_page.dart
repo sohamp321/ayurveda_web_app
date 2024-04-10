@@ -142,18 +142,30 @@ class _Sla_PageState extends State<Sla_Page> {
                 ),
               )),
         ),
-        floatingActionButton: FloatingActionButton(
-          
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      Sneha_jeera_lakshan()), // Assuming SnehaJeerna is the name of the class in sneha_jeerna.dart
-            );
-          },
-          backgroundColor: Color.fromARGB(255, 29, 186, 34),
-          child: Icon(Icons.navigate_next_sharp),
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              backgroundColor: const Color.fromARGB(255, 29, 186, 34),
+              child: Icon(Icons.navigate_before_sharp),
+            ),
+            SizedBox(
+              width: vw * 0.92,
+            ),
+            FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Sneha_jeerna_kala()));
+              },
+              backgroundColor: const Color.fromARGB(255, 29, 186, 34),
+              child: Icon(Icons.navigate_next_sharp),
+            ),
+          ],
         ),
       ),
     ]);
