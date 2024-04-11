@@ -1,4 +1,5 @@
 import 'package:ayurveda_app/pages/aama_lakshana_assessment/ala_page.dart';
+import 'package:ayurveda_app/pages/ayoga_lakshana/al_page.dart';
 import 'package:ayurveda_app/pages/create_patient/create_patient_page.dart';
 import 'package:ayurveda_app/pages/dashboard.dart';
 import 'package:ayurveda_app/pages/login/login_page.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: Scaffold(
-        body:syl_page(),
+        body:Al_page(),
       ),
     );
   }

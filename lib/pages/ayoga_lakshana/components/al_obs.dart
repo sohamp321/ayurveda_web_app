@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:ayurveda_app/components/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -119,7 +118,6 @@ Widget mid_obs(BuildContext context, String row_heading) {
     ),
   );
 }
-
 
 Widget end_obs(BuildContext context, String row_heading) {
   final vw = MediaQuery.of(context).size.width;

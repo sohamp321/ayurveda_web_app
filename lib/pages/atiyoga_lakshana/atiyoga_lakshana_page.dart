@@ -3,19 +3,19 @@
 import 'dart:ui';
 
 import 'package:ayurveda_app/components/widgets.dart';
-import 'package:ayurveda_app/pages/ayoga_lakshana/al_page.dart';
-import 'package:ayurveda_app/pages/samyak_yoga_lakshan/components/syl_obs.dart';
+import 'package:ayurveda_app/pages/ayoga_lakshana/components/al_obs.dart';
 import 'package:ayurveda_app/pages/sarwanga/components/day_shower.dart';
+
 import 'package:flutter/material.dart';
 
-class syl_page extends StatefulWidget {
-  const syl_page({super.key});
+class AtiyogaL_page extends StatefulWidget {
+  const AtiyogaL_page({super.key});
 
   @override
-  State<syl_page> createState() => _syl_pageState();
+  State<AtiyogaL_page> createState() => _AtiyogaL_pageState();
 }
 
-class _syl_pageState extends State<syl_page> {
+class _AtiyogaL_pageState extends State<AtiyogaL_page> {
   @override
   Widget build(BuildContext context) {
     final vw = MediaQuery.of(context).size.width;
@@ -70,38 +70,25 @@ class _syl_pageState extends State<syl_page> {
                                   child: Column(
                                     children: [
                                       start_obs(context,
-                                          "Kale-pravati (Timely initiation of emesis)"),
+                                          "Phenila-vamana (frothy appearance of vomitus)"),
                                       emptySpace(context, null, 0.005),
                                       mid_obs(context,
-                                          "Yathakrama kapha Pitta-anila agaman \n(sequential elminaion of Kapha, pitta and anila)"),
+                                          "Rakta-chandika-yukta-vamana (blood stained vomitus)"),
                                       emptySpace(context, null, 0.005),
                                       mid_obs(context,
-                                          "Swayama cha avasthanam (emesis Stops \non its own after elimination of all toxins)"),
+                                          "Kantha-Pida (pain/irritation of throat))"),
                                       emptySpace(context, null, 0.005),
                                       mid_obs(context,
-                                          "Kantha-shudhi(No irritation in throat)"),
+                                          "Hrita-pida (pain in chest region)"),
                                       emptySpace(context, null, 0.005),
                                       mid_obs(context,
-                                          "Srotovishudhi (clarity of channels/Bahya srotas -External \nOrifices- to be considered for immediate effects )"),
+                                          "Trishna(excsessive thirst)"),
                                       emptySpace(context, null, 0.005),
                                       mid_obs(context,
-                                          "Hridaya-parshva-shudhi(No \ndiscomfort in chest region and flanks)"),
-                                      emptySpace(context, null, 0.005),
-                                      mid_obs(context,
-                                          "Indriya-shudhi(sense organs \nappearing to be more active)"),
-                                      emptySpace(context, null, 0.005),
-                                      mid_obs(context,
-                                          "Murdha-shudhi (lightness of head \nwithout any discomfort)"),
-                                      emptySpace(context, null, 0.005),
-                                      mid_obs(context, "Laghuta(lightness)"),
-                                      emptySpace(context, null, 0.005),
-                                      mid_obs(context, "Daurbalya(fatigue)"),
-                                      emptySpace(context, null, 0.005),
-                                      mid_obs(context,
-                                          "Swasthtaa(Decreased intensity \nof disease) - After effect"),
+                                          "Bala Hani(loss of strength)"),
                                       emptySpace(context, null, 0.005),
                                       end_obs(context,
-                                          "Manah-prasada(Feeling more \nhappy and contended)-After effect"),
+                                          "Moha/murchha(State of confusion/loss of consciousness)"),
                                       emptySpace(context, null, 0.005),
                                     ],
                                   ),
@@ -126,10 +113,10 @@ class _syl_pageState extends State<syl_page> {
               ),
               FloatingActionButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Al_page()));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => Sneha_jeerna_kala()));
                 },
                 backgroundColor: const Color.fromARGB(255, 29, 186, 34),
                 child: Icon(Icons.navigate_next_sharp),

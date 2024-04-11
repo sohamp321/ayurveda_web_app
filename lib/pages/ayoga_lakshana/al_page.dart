@@ -3,19 +3,20 @@
 import 'dart:ui';
 
 import 'package:ayurveda_app/components/widgets.dart';
-import 'package:ayurveda_app/pages/ayoga_lakshana/al_page.dart';
-import 'package:ayurveda_app/pages/samyak_yoga_lakshan/components/syl_obs.dart';
+import 'package:ayurveda_app/pages/atiyoga_lakshana/atiyoga_lakshana_page.dart';
+import 'package:ayurveda_app/pages/ayoga_lakshana/components/al_obs.dart';
 import 'package:ayurveda_app/pages/sarwanga/components/day_shower.dart';
+
 import 'package:flutter/material.dart';
 
-class syl_page extends StatefulWidget {
-  const syl_page({super.key});
+class Al_page extends StatefulWidget {
+  const Al_page({super.key});
 
   @override
-  State<syl_page> createState() => _syl_pageState();
+  State<Al_page> createState() => _Al_pageState();
 }
 
-class _syl_pageState extends State<syl_page> {
+class _Al_pageState extends State<Al_page> {
   @override
   Widget build(BuildContext context) {
     final vw = MediaQuery.of(context).size.width;
@@ -70,38 +71,28 @@ class _syl_pageState extends State<syl_page> {
                                   child: Column(
                                     children: [
                                       start_obs(context,
-                                          "Kale-pravati (Timely initiation of emesis)"),
+                                          "Apravruti/keval aushadha parvaruti\n(cessation of emesis or expulsion of medicine only)"),
                                       emptySpace(context, null, 0.005),
                                       mid_obs(context,
                                           "Yathakrama kapha Pitta-anila agaman \n(sequential elminaion of Kapha, pitta and anila)"),
                                       emptySpace(context, null, 0.005),
                                       mid_obs(context,
-                                          "Swayama cha avasthanam (emesis Stops \non its own after elimination of all toxins)"),
+                                          "Kapha-praseka/nishtheva(Excessive mucous stained salivation)"),
                                       emptySpace(context, null, 0.005),
                                       mid_obs(context,
-                                          "Kantha-shudhi(No irritation in throat)"),
+                                          "Sroto-avishudhi(Absense of calrity of channels/Bahya srotas\n- External Orifices - to be considered for immediate effect)"),
                                       emptySpace(context, null, 0.005),
                                       mid_obs(context,
-                                          "Srotovishudhi (clarity of channels/Bahya srotas -External \nOrifices- to be considered for immediate effects )"),
+                                          "Hridaya-Avishuddhi(discomfort in chest region and flanks) "),
                                       emptySpace(context, null, 0.005),
                                       mid_obs(context,
-                                          "Hridaya-parshva-shudhi(No \ndiscomfort in chest region and flanks)"),
+                                          "Gurugatrata(heviness)"),
                                       emptySpace(context, null, 0.005),
                                       mid_obs(context,
-                                          "Indriya-shudhi(sense organs \nappearing to be more active)"),
-                                      emptySpace(context, null, 0.005),
-                                      mid_obs(context,
-                                          "Murdha-shudhi (lightness of head \nwithout any discomfort)"),
-                                      emptySpace(context, null, 0.005),
-                                      mid_obs(context, "Laghuta(lightness)"),
-                                      emptySpace(context, null, 0.005),
-                                      mid_obs(context, "Daurbalya(fatigue)"),
-                                      emptySpace(context, null, 0.005),
-                                      mid_obs(context,
-                                          "Swasthtaa(Decreased intensity \nof disease) - After effect"),
+                                          "Sphota-kotha(Skin rashes or eruptions)"),
                                       emptySpace(context, null, 0.005),
                                       end_obs(context,
-                                          "Manah-prasada(Feeling more \nhappy and contended)-After effect"),
+                                          "Kandu(Itching)"),
                                       emptySpace(context, null, 0.005),
                                     ],
                                   ),
@@ -129,7 +120,7 @@ class _syl_pageState extends State<syl_page> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => Al_page()));
+                          builder: (context) => AtiyogaL_page()));
                 },
                 backgroundColor: const Color.fromARGB(255, 29, 186, 34),
                 child: Icon(Icons.navigate_next_sharp),
