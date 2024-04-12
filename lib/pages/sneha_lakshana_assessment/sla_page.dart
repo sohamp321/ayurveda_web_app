@@ -40,7 +40,7 @@ class _Sla_PageState extends State<Sla_Page> {
       ),
       Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: appBarMenu(context),
+        appBar: appBarMenu(context, "Sneha Lakshana Assessment"),
         body: Center(
           child: Container(
               width: vw * 0.9,

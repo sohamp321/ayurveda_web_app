@@ -1,14 +1,16 @@
 import 'dart:ui';
-
 import 'package:ayurveda_app/components/widgets.dart';
-import 'package:ayurveda_app/pages/aama_lakshana_assessment/components/observations.dart';
+import 'package:ayurveda_app/pages/aama_lakshana_assessment/ala_page.dart';
+import 'package:ayurveda_app/pages/atiyoga_lakshana/atiyoga_lakshana_page.dart';
+import 'package:ayurveda_app/pages/ayoga_lakshana/al_page.dart';
+import 'package:ayurveda_app/pages/samyak_yoga_lakshan/syl_page.dart';
 import 'package:ayurveda_app/pages/sarwanga/sarvanga.dart';
+import 'package:ayurveda_app/pages/snehaJeeryamana_lakhan/sneha_jeer_lakshan.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/aahara.dart';
-import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/day_shower.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/observations.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/sarvang.dart';
-import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/shramaha.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/day_shower_sneha_jeera.dart';
+import 'package:ayurveda_app/pages/sneha_lakshana_assessment/sla_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -37,7 +39,8 @@ class _Sneha_jeerna_kalaState extends State<Sneha_jeerna_kala> {
       ),
       Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: appBarMenu(context),
+        appBar: appBarMenu(context, "Sneha Jeerna Kala"),
+        drawer: navigationDrawer(colorscheme: colorscheme),
         body: Center(
           child: Container(
             width: vw * 0.95,
@@ -84,14 +87,12 @@ class _Sneha_jeerna_kalaState extends State<Sneha_jeerna_kala> {
                         ),
                       ),
                     ],
-
                   ),
                 ),
               ),
             ),
           ),
         ),
-      
         floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -107,16 +108,19 @@ class _Sneha_jeerna_kalaState extends State<Sneha_jeerna_kala> {
             ),
             FloatingActionButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Sarvanga_swedana_page()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Sarvanga_swedana_page()));
               },
               backgroundColor: const Color.fromARGB(255, 29, 186, 34),
               child: Icon(Icons.navigate_next_sharp),
             ),
           ],
         ),
-
       ),
     ]);
   }
 }
+
+

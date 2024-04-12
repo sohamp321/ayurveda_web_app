@@ -34,7 +34,7 @@ class _Al_pageState extends State<Al_page> {
         ),
         Scaffold(
             backgroundColor: Colors.transparent,
-            appBar: appBarMenu(context),
+            appBar: appBarMenu(context, 'Ayoga Lakshana'),
             body: Center(
                 child: Container(
                     width: vw * 0.95,

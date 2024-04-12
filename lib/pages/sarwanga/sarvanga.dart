@@ -32,7 +32,7 @@ class _Sarvang_swedana_pageState extends State<Sarvanga_swedana_page> {
       ),
       Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: appBarMenu(context),
+        appBar: appBarMenu(context, "Sarvanga Swedana"),
         body: Center(
           child: Container(
             width: vw * 0.95,

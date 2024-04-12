@@ -38,7 +38,7 @@ class _sjl_pageState extends State<sjl_page> {
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: appBarMenu(context),
+          appBar: appBarMenu(context, 'Sneha Jeeryamana Lakshana'),
           body: Center(
             child: Container(
               width: vw * 0.9,

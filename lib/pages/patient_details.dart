@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:ui';
 
 import 'package:ayurveda_app/pages/aama_lakshana_assessment/ala_page.dart';
@@ -92,7 +94,7 @@ class _PatientDetailsState extends State<PatientDetails> {
       ),
       Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: appBarMenu(context),
+        appBar: appBarMenu(context, "Create Patient"),
         body: Container(
           height: vh * 0.9,
           width: vw * 0.96,

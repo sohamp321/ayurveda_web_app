@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: Scaffold(
-        body:Al_page(),
+        body:Sneha_jeerna_kala(),
       ),
     );
   }

@@ -33,7 +33,7 @@ class _syl_pageState extends State<syl_page> {
         ),
         Scaffold(
             backgroundColor: Colors.transparent,
-            appBar: appBarMenu(context),
+            appBar: appBarMenu(context, 'Samyak Yoga Lakshan'),
             body: Center(
                 child: Container(
                     width: vw * 0.95,

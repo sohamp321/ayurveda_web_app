@@ -32,7 +32,7 @@ class _ala_pageState extends State<ala_page> {
       ),
       Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: appBarMenu(context),
+        appBar: appBarMenu(context , 'Aama Lakshana Assessment'),
         body: Center(
           child: Container(
             height: vh * 0.86,

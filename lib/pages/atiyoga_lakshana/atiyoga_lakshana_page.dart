@@ -33,7 +33,7 @@ class _AtiyogaL_pageState extends State<AtiyogaL_page> {
         ),
         Scaffold(
             backgroundColor: Colors.transparent,
-            appBar: appBarMenu(context),
+            appBar: appBarMenu(context, 'Atiyoga Lakshana'),
             body: Center(
                 child: Container(
                     width: vw * 0.95,
