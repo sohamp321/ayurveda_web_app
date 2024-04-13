@@ -1,7 +1,9 @@
+import 'package:ayurveda_app/firebase_options.dart';
 import 'package:ayurveda_app/pages/aama_lakshana_assessment/ala_page.dart';
 import 'package:ayurveda_app/pages/ayoga_lakshana/al_page.dart';
 import 'package:ayurveda_app/pages/create_patient/create_patient_page.dart';
 import 'package:ayurveda_app/pages/dashboard.dart';
+import 'package:ayurveda_app/pages/demo.dart';
 import 'package:ayurveda_app/pages/login/login_page.dart';
 import 'package:ayurveda_app/pages/patient_details.dart';
 import 'package:ayurveda_app/pages/samyak_yoga_lakshan/syl_page.dart';
@@ -10,9 +12,14 @@ import 'package:ayurveda_app/pages/snehaJeeryamana_lakhan/sneha_jeer_lakshan.dar
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/sla_page.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/sneha_jeera_kala.dart';
 import 'package:ayurveda_app/pages/theme_preview.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
   runApp(const MyApp());
 }
 
@@ -39,7 +46,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: Scaffold(
-        body:Sneha_jeerna_kala(),
+        body:Sarvanga_swedana_page(),
       ),
     );
   }

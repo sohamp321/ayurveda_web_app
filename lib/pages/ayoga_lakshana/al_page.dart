@@ -4,8 +4,6 @@ import 'dart:ui';
 
 import 'package:ayurveda_app/components/widgets.dart';
 import 'package:ayurveda_app/pages/atiyoga_lakshana/atiyoga_lakshana_page.dart';
-import 'package:ayurveda_app/pages/ayoga_lakshana/components/al_obs.dart';
-import 'package:ayurveda_app/pages/sarwanga/components/day_shower.dart';
 
 import 'package:flutter/material.dart';
 
@@ -17,24 +15,28 @@ class Al_page extends StatefulWidget {
 }
 
 class _Al_pageState extends State<Al_page> {
+  List<String> AyogaLakshanList = [
+    "Apravruti/keval aushadha parvaruti (cessation of emesis or expulsion of medicine only)",
+    "Yathakrama kapha Pitta-anila agaman (sequential elminaion of Kapha, pitta and anila)",
+    "Kapha-praseka ishtheva(Excessive mucous stained salivation)",
+    "Sroto-avishudhi(Absense of calrity of channels/Bahya srotas- External Orifices - to be considered for immediate effect)",
+    "Hridaya-Avishuddhi(discomfort in chest region and flanks) ",
+    "Gurugatrata(heviness)",
+    "Sphota-kotha(Skin rashes or eruptions)",
+    "Kandu(Itching)",
+  ];
   @override
   Widget build(BuildContext context) {
     final vw = MediaQuery.of(context).size.width;
     final vh = MediaQuery.of(context).size.height;
+    final colorscheme = Theme.of(context).colorScheme;
     return Stack(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                  "assets/images/background-6.jpg"), // Use AssetImage for local images
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
+        backgroundImage(context),
         Scaffold(
             backgroundColor: Colors.transparent,
             appBar: appBarMenu(context, 'Ayoga Lakshana'),
+            drawer: navigationDrawer(context),
             body: Center(
                 child: Container(
                     width: vw * 0.95,
@@ -44,57 +46,64 @@ class _Al_pageState extends State<Al_page> {
                       child: BackdropFilter(
                         filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
                         child: Container(
-                          height: vh * 0.85,
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               emptySpace(context, null, 0.01),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  day_shower(),
-                                ],
-                              ),
-                              emptySpace(context, null, 0.005),
-                              Container(
-                                height: vh * 0.735,
-                                width: vw * 0.94,
-                                decoration: BoxDecoration(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .surface
-                                        .withOpacity(0.7),
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(8),
-                                        bottomRight: Radius.circular(8),
-                                        bottomLeft: Radius.circular(8))),
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    children: [
-                                      start_obs(context,
-                                          "Apravruti/keval aushadha parvaruti\n(cessation of emesis or expulsion of medicine only)"),
-                                      emptySpace(context, null, 0.005),
-                                      mid_obs(context,
-                                          "Yathakrama kapha Pitta-anila agaman \n(sequential elminaion of Kapha, pitta and anila)"),
-                                      emptySpace(context, null, 0.005),
-                                      mid_obs(context,
-                                          "Kapha-praseka/nishtheva(Excessive mucous stained salivation)"),
-                                      emptySpace(context, null, 0.005),
-                                      mid_obs(context,
-                                          "Sroto-avishudhi(Absense of calrity of channels/Bahya srotas\n- External Orifices - to be considered for immediate effect)"),
-                                      emptySpace(context, null, 0.005),
-                                      mid_obs(context,
-                                          "Hridaya-Avishuddhi(discomfort in chest region and flanks) "),
-                                      emptySpace(context, null, 0.005),
-                                      mid_obs(context,
-                                          "Gurugatrata(heviness)"),
-                                      emptySpace(context, null, 0.005),
-                                      mid_obs(context,
-                                          "Sphota-kotha(Skin rashes or eruptions)"),
-                                      emptySpace(context, null, 0.005),
-                                      end_obs(context,
-                                          "Kandu(Itching)"),
-                                      emptySpace(context, null, 0.005),
-                                    ],
+                              DayShower(),
+                              emptySpace(context, null, 0.01),
+                              Center(
+                                child: Container(
+                                  width: vw * 0.94,
+                                  height: vh * 0.745,
+                                  decoration: BoxDecoration(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .background
+                                          .withOpacity(0.5),
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(8),
+                                          bottomRight: Radius.circular(8),
+                                          bottomLeft: Radius.circular(8))),
+                                  child: SingleChildScrollView(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        emptySpace(context, null, 0.01),
+                                        for (var i = 0;
+                                            i < AyogaLakshanList.length;
+                                            i++) ...[
+                                          if (i == 0) ...[
+                                            observationRow(
+                                                vh: vh,
+                                                vw: vw,
+                                                colorscheme: colorscheme,
+                                                rowPosition: "Begin",
+                                                observationText:
+                                                    AyogaLakshanList[i]),
+                                          ] else if (i ==
+                                              AyogaLakshanList.length) ...[
+                                            observationRow(
+                                                vh: vh,
+                                                vw: vw,
+                                                colorscheme: colorscheme,
+                                                rowPosition: "End",
+                                                observationText:
+                                                    AyogaLakshanList[i]),
+                                          ] else ...[
+                                            observationRow(
+                                                vh: vh,
+                                                vw: vw,
+                                                colorscheme: colorscheme,
+                                                rowPosition: "Middle",
+                                                observationText:
+                                                    AyogaLakshanList[i]),
+                                          ],
+                                          emptySpace(context, null, 0.01),
+                                        ]
+                                      ],
+                                    ),
                                   ),
                                 ),
                               )
@@ -117,10 +126,8 @@ class _Al_pageState extends State<Al_page> {
               ),
               FloatingActionButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => AtiyogaL_page()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AtiyogaL_page()));
                 },
                 backgroundColor: const Color.fromARGB(255, 29, 186, 34),
                 child: Icon(Icons.navigate_next_sharp),

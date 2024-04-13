@@ -6,7 +6,6 @@ import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/anga_lag
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/anga_mardavta.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/anga_snigdhata.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/asamhata_varchas.dart';
-import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/day_shower.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/klama.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/snigdha_varchas.dart';
 import 'package:ayurveda_app/pages/sneha_lakshana_assessment/components/vatanulomana.dart';

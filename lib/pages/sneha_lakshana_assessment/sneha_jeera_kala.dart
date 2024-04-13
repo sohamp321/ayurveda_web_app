@@ -40,7 +40,7 @@ class _Sneha_jeerna_kalaState extends State<Sneha_jeerna_kala> {
       Scaffold(
         backgroundColor: Colors.transparent,
         appBar: appBarMenu(context, "Sneha Jeerna Kala"),
-        drawer: navigationDrawer(colorscheme: colorscheme),
+        drawer: navigationDrawer(context),
         body: Center(
           child: Container(
             width: vw * 0.95,

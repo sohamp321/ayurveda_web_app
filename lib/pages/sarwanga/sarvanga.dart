@@ -1,8 +1,6 @@
 import 'dart:ui';
 
 import 'package:ayurveda_app/components/widgets.dart';
-import 'package:ayurveda_app/pages/sarwanga/components/day_shower.dart';
-import 'package:ayurveda_app/pages/sarwanga/components/observations.dart';
 import 'package:ayurveda_app/pages/sarwanga/components/sarvanga_swedana.dart';
 import 'package:ayurveda_app/pages/snehaJeeryamana_lakhan/sneha_jeer_lakshan.dart';
 import 'package:flutter/material.dart';
@@ -16,22 +14,30 @@ class Sarvanga_swedana_page extends StatefulWidget {
 }
 
 class _Sarvang_swedana_pageState extends State<Sarvanga_swedana_page> {
+  List<String> sarvanga_list = [
+    "Sheeta uparama(Experiencing warmth in the body)",
+    "Sanjate swade (Induced sweating)",
+    "Mardavam (Feeling of softness in body)",
+    "Gaurav-nigraha (Relief in heaviness of body)",
+    "Cheshtayet aashu (Feeling more active)",
+    "Shula uparama (Relief in body ache if present)",
+    "Stambha nigraha (Relief in stiffness if present)",
+    "Bhakta sharadha (Increased appetite)",
+    "Tandra nindra hani (Decreased or loss in the intensity of somnolence/feeling sleepy)",
+    "Strotasaam nirmalatvam (clarity of external channels)",
+    "Any other observation",
+  ];
   @override
   Widget build(BuildContext context) {
     final vw = MediaQuery.of(context).size.width;
     final vh = MediaQuery.of(context).size.height;
+    final colorscheme = Theme.of(context).colorScheme;
+
     return Stack(children: [
-      Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-                "assets/images/background-6.jpg"), // Use AssetImage for local images
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
+      backgroundImage(context),
       Scaffold(
         backgroundColor: Colors.transparent,
+        drawer: navigationDrawer(context),
         appBar: appBarMenu(context, "Sarvanga Swedana"),
         body: Center(
           child: Container(
@@ -42,50 +48,100 @@ class _Sarvang_swedana_pageState extends State<Sarvanga_swedana_page> {
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
                 child: Container(
-                  height: vh * 0.85,
-                  width: vw,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       emptySpace(context, null, 0.01),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          day_shower(),
-                        ],
-                      ),
+                      DayShower(),
                       emptySpace(context, null, 0.005),
-                      Container(
-                        height: vh * 0.74,
-                        width: vw * 0.94,
-                        decoration: BoxDecoration(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .surface
-                                .withOpacity(0.7),
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(8),
-                                bottomRight: Radius.circular(8),
-                                bottomLeft: Radius.circular(8))),
-                        child: Column(
-                          children: [
-                            
-                            sarvanga_swedana(vh: vh, vw: vw),
-                            emptySpace(context, null, 0.005),
-                            obs_sarvanga(vh: vh, vw: vw),
-                            emptySpace(context, null, 0.005),
-                            // shramaha(vh: vh, vw: vw),
-                          ],
+                      Center(
+                        child: Container(
+                          height: vh * 0.745,
+                          width: vw * 0.94,
+                          decoration: BoxDecoration(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .surface
+                                  .withOpacity(0.7),
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(8),
+                                  bottomRight: Radius.circular(8),
+                                  bottomLeft: Radius.circular(8))),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              emptySpace(context, null, 0.01),
+                              sarvanga_swedana(vh: vh, vw: vw),
+                              emptySpace(context, null, 0.005),
+
+                              Center(
+                                child: Container(
+                                  width: vw * 0.94,
+                                  height: vh * 0.6,
+                                  decoration: BoxDecoration(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .background
+                                          .withOpacity(0.5),
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(8),
+                                          bottomRight: Radius.circular(8),
+                                          bottomLeft: Radius.circular(8))),
+                                  child: SingleChildScrollView(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        emptySpace(context, null, 0.01),
+                                        for (var i = 0;
+                                            i < sarvanga_list.length;
+                                            i++) ...[
+                                          if (i == 0) ...[
+                                            observationRow(
+                                                vh: vh,
+                                                vw: vw,
+                                                colorscheme: colorscheme,
+                                                rowPosition: "Begin",
+                                                observationText:
+                                                    sarvanga_list[i]),
+                                          ] else if (i ==
+                                              sarvanga_list.length) ...[
+                                            observationRow(
+                                                vh: vh,
+                                                vw: vw,
+                                                colorscheme: colorscheme,
+                                                rowPosition: "End",
+                                                observationText:
+                                                    sarvanga_list[i]),
+                                          ] else ...[
+                                            observationRow(
+                                                vh: vh,
+                                                vw: vw,
+                                                colorscheme: colorscheme,
+                                                rowPosition: "Middle",
+                                                observationText:
+                                                    sarvanga_list[i]),
+                                          ],
+                                          emptySpace(context, null, 0.01),
+                                        ]
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              )
+
+                              // shramaha(vh: vh, vw: vw),
+                            ],
+                          ),
                         ),
                       ),
                     ],
-
                   ),
                 ),
               ),
             ),
           ),
         ),
-      
         floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -109,7 +165,6 @@ class _Sarvang_swedana_pageState extends State<Sarvanga_swedana_page> {
             ),
           ],
         ),
-
       ),
     ]);
   }
