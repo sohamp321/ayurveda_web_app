@@ -77,13 +77,13 @@ class _ala_pageState extends State<ala_page> {
                             ),
                             Center(
                               child: Container(
-                                width: vw * 0.94,
-                                height: vh * 0.6,
+                                width: vw * 0.93,
+                                height: vh * 0.59,
                                 decoration: BoxDecoration(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .background
-                                        .withOpacity(0.5),
+                                    // color: Theme.of(context)
+                                    //     .colorScheme
+                                    //     .background
+                                    //     .withOpacity(0.5),
                                     borderRadius: BorderRadius.only(
                                         topLeft: Radius.circular(8),
                                         bottomRight: Radius.circular(8),
@@ -119,7 +119,7 @@ class _ala_pageState extends State<ala_page> {
                                               rowPosition: "Middle",
                                               observationText: ala_list[i]),
                                         ],
-                                        emptySpace(context, null, 0.01),
+                                        emptySpace(context, null, 0.005),
                                       ]
                                     ],
                                   ),

@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: Scaffold(
-        body:Sarvanga_swedana_page(),
+        body:LoginPage(),
       ),
     );
   }
